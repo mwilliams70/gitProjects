@@ -15,8 +15,10 @@ public class starting {
     public static void main(String[] args) {
         int[] arr = numberSet();
 
+        
+        System.out.println("     1    2    3    4");
         for (int i = 0; i < 5; i++) {
-            String[] blank = {"[ ]", "[ ]","[ ]","[ ]","[ ]"};
+            String[] blank = {i + ":  " + "[ ]", "[ ]","[ ]","[ ]","[ ]"};
             for (int j = 0; j < 4; j++) {
                 System.out.print(blank[j] + "  ");
             }
