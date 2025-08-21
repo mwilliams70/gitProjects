@@ -3,8 +3,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class starting extends Thread {
+public class MemoryGame {
 
+    private final static int ROWS = 4;
+    private final static int COLS = 5;
+
+    
     // Creates a pairs of numbers 1-10. 1,1,2,2, etc.
     public static Integer[] numberSet() {
         int number;
