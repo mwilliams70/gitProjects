@@ -36,9 +36,56 @@ public class starting {
         return twoD;
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner();
+    public static void printBoard(Object[][] board) {
+        for (Object[] row : board) {
+            for (Object item : row) {
+                System.out.print(item + "\t");
+            }
+            System.out.println();
+        }
+    }
 
+    public static Object[][] emptyBoard() {
+        Object[][] empty = new Object[4][5];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
+                empty[i][j] = "[ ]";
+            }
+        }
+        return empty;
+    }
+
+    public static void main(String[] args) {
+        Integer[][] board = board(shuffler(numberSet()));
+        // Integer[][] board = board(numberSet());
+
+        Object[][] emptyBoard = emptyBoard();
+        printBoard(board);
+        printBoard(emptyBoard);
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Position 1: ");
+        int input1 = sc.nextInt();
+        int input2 = sc.nextInt();
+
+        System.out.println("\n");
+        System.out.print("Enter Position 2: ");
+
+        int input3 = sc.nextInt();
+        int input4 = sc.nextInt();
+
+        System.out.println("P1: " + board[input1][input2]);
+        System.out.println("P2: " + board[input3][input4]);
+
+        if (board[input1][input2].equals(board[input3][input4])) {
+            emptyBoard[input1][input2] = board[input1][input2];
+            emptyBoard[input3][input4] = board[input3][input4];
+        }
+
+        printBoard(emptyBoard);
+
+        sc.close();
         
     }
 
