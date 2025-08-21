@@ -78,7 +78,9 @@ public class starting {
         System.out.println("P1: " + board[input1][input2]);
         System.out.println("P2: " + board[input3][input4]);
 
+        // checks if the two position are a match
         if (board[input1][input2].equals(board[input3][input4])) {
+            // if match -> set empty board values for future reference
             emptyBoard[input1][input2] = board[input1][input2];
             emptyBoard[input3][input4] = board[input3][input4];
         }
