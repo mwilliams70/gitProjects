@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class starting {
 
@@ -26,7 +27,7 @@ public class starting {
 
     public static Integer[][] board(Integer[] shuffledList) {
         Integer[][] twoD = new Integer[4][5];
-        int index = 0;
+        int index = 0; // keeps track of shuffledList index
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 5; j++) {
                 twoD[i][j] = shuffledList[index++];
@@ -36,7 +37,7 @@ public class starting {
     }
 
     public static void main(String[] args) {
- 
+        Scanner sc = new Scanner();
 
         
     }
