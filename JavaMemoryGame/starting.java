@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class starting {
+public class starting extends Thread {
 
     // Creates a pairs of numbers 1-10. 1,1,2,2, etc.
     public static Integer[] numberSet() {
@@ -64,8 +64,14 @@ public class starting {
         return empty;
     }
 
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     public static void main(String[] args) {
-        Integer[][] board = board(shuffler(numberSet()));
+        // Integer[][] board = board(shuffler(numberSet())); 
+        Integer[][] board = board(numberSet());
         Object[][] emptyBoard = emptyBoard();
 
         // testing purpose, don't delete yet
@@ -76,11 +82,11 @@ public class starting {
             System.out.printf("%-8d", i);
         }
         System.out.println();
-        printBoard(emptyBoard);
 
         Scanner sc = new Scanner(System.in);
         boolean finished = false;
         while (!finished) {
+            printBoard(emptyBoard);
             System.out.print("Enter Position 1: ");
             int input1 = sc.nextInt();
             int input2 = sc.nextInt();
@@ -101,20 +107,38 @@ public class starting {
                 emptyBoard[input3][input4] = board[input3][input4];
             } else {
                 // will show your choices but if no match, reset them
+                clearScreen();
                 emptyBoard[input1][input2] = board[input1][input2];
                 emptyBoard[input3][input4] = board[input3][input4];
                 printBoard(emptyBoard);
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    Thread.currentThread().interrupt();
+                }
+                clearScreen();
                 emptyBoard[input1][input2] = "[ ]";
                 emptyBoard[input3][input4] = "[ ]";
                 continue;
             }
+            clearScreen();
 
-            printBoard(emptyBoard);
+            finished = true;
+            for (Object[] row : emptyBoard) {
+                for (Object item : row) {
+                    if (item.equals("[ ]")) {
+                        finished = false;
+                        break;
+                    }
+                }
+                if (!finished) break;
+            }
+
+            if (finished) {
+                System.out.println("Game Over! All Numbers Matched!");
+            }
         }
-
-
-        sc.close();
-        
+        sc.close();      
     }
-
 }
