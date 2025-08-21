@@ -24,20 +24,21 @@ public class starting {
         return shuffled;
     }
 
-    public static void main(String[] args) {
-        Integer[] list = shuffler(numberSet());
-        System.out.println(Arrays.toString(list));
+    public static Integer[][] board(Integer[] shuffledList) {
         Integer[][] twoD = new Integer[4][5];
         int index = 0;
-        for (int j = 0; j < 4; j++){
-            for (int k = 0; k < 5; k++) {
-                twoD[j][k] = list[index++];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
+                twoD[i][j] = shuffledList[index++];
             }
         }
+        return twoD;
+    }
+
+    public static void main(String[] args) {
+ 
+
         
-        for (Integer[] row : twoD) {
-            System.out.println(Arrays.toString(row));
-        }
     }
 
 }
