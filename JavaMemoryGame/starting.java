@@ -57,9 +57,9 @@ public class starting {
 
     public static void main(String[] args) {
         Integer[][] board = board(shuffler(numberSet()));
-        // Integer[][] board = board(numberSet());
-
         Object[][] emptyBoard = emptyBoard();
+
+        // testing purpose, don't delete yet
         printBoard(board);
         printBoard(emptyBoard);
 
