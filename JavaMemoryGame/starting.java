@@ -79,28 +79,39 @@ public class starting {
         printBoard(emptyBoard);
 
         Scanner sc = new Scanner(System.in);
+        boolean finished = false;
+        while (!finished) {
+            System.out.print("Enter Position 1: ");
+            int input1 = sc.nextInt();
+            int input2 = sc.nextInt();
 
-        System.out.print("Enter Position 1: ");
-        int input1 = sc.nextInt();
-        int input2 = sc.nextInt();
+            System.out.println("\n");
+            System.out.print("Enter Position 2: ");
 
-        System.out.println("\n");
-        System.out.print("Enter Position 2: ");
+            int input3 = sc.nextInt();
+            int input4 = sc.nextInt();
 
-        int input3 = sc.nextInt();
-        int input4 = sc.nextInt();
+            System.out.println("P1: " + board[input1][input2]);
+            System.out.println("P2: " + board[input3][input4]);
 
-        System.out.println("P1: " + board[input1][input2]);
-        System.out.println("P2: " + board[input3][input4]);
+            // checks if the two position are a match
+            if (board[input1][input2].equals(board[input3][input4])) {
+                // if match -> set empty board values for future reference
+                emptyBoard[input1][input2] = board[input1][input2];
+                emptyBoard[input3][input4] = board[input3][input4];
+            } else {
+                // will show your choices but if no match, reset them
+                emptyBoard[input1][input2] = board[input1][input2];
+                emptyBoard[input3][input4] = board[input3][input4];
+                printBoard(emptyBoard);
+                emptyBoard[input1][input2] = "[ ]";
+                emptyBoard[input3][input4] = "[ ]";
+                continue;
+            }
 
-        // checks if the two position are a match
-        if (board[input1][input2].equals(board[input3][input4])) {
-            // if match -> set empty board values for future reference
-            emptyBoard[input1][input2] = board[input1][input2];
-            emptyBoard[input3][input4] = board[input3][input4];
+            printBoard(emptyBoard);
         }
 
-        printBoard(emptyBoard);
 
         sc.close();
         
