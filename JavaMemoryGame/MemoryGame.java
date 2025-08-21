@@ -7,12 +7,12 @@ public class MemoryGame {
 
     private final static int ROWS = 4;
     private final static int COLS = 5;
-
+    private final static int TOTAL_NUMBERS = 20;
     
     // Creates a pairs of numbers 1-10. 1,1,2,2, etc.
     public static Integer[] numberSet() {
         int number;
-        Integer [] array = new Integer[20];
+        Integer [] array = new Integer[TOTAL_NUMBERS];
         for (number = 0; number<10; number++) {
             array[number] = number+1;
             array[number+10] = number+1;
@@ -30,9 +30,9 @@ public class MemoryGame {
     }
 
     public static Integer[][] board(Integer[] shuffledList) {
-        Integer[][] twoD = new Integer[4][5];
+        Integer[][] twoD = new Integer[ROWS][5];
         int index = 0; // keeps track of shuffledList index
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < 5; j++) {
                 twoD[i][j] = shuffledList[index++];
             }
@@ -60,7 +60,7 @@ public class MemoryGame {
 
     public static Object[][] emptyBoard() {
         Object[][] empty = new Object[4][5];
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < 5; j++) {
                 empty[i][j] = "[ ]";
             }
