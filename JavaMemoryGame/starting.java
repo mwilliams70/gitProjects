@@ -37,9 +37,18 @@ public class starting {
     }
 
     public static void printBoard(Object[][] board) {
-        for (Object[] row : board) {
-            for (Object item : row) {
-                System.out.print(item + "\t");
+        
+        System.out.print("   ");
+        for (int i = 0; i < board[0].length; i++) {
+            System.out.printf("%-8d", i);
+        }
+        System.out.println();
+
+        
+        for (int i = 0; i < board.length; i++) {
+            System.out.printf("%-2d", i); 
+            for (int j = 0; j < board[i].length; j++) {
+                System.out.printf("%-8s", board[i][j]);
             }
             System.out.println();
         }
@@ -61,6 +70,12 @@ public class starting {
 
         // testing purpose, don't delete yet
         printBoard(board);
+
+        System.out.print(" ");
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("%-8d", i);
+        }
+        System.out.println();
         printBoard(emptyBoard);
 
         Scanner sc = new Scanner(System.in);
