@@ -15,8 +15,8 @@ public class Board {
         this.emptyBoard = emptyBoard();
     }
 
+    // gets Board fields
     public Integer[] getSet() {return set;}
-
     public Integer[][] getGameBoard() {return gameBoard;}
     public Object[][] getEmptyBoard() {return emptyBoard;}
 
