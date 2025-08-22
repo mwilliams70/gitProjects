@@ -2,7 +2,8 @@ public class MemoryGame {
     public static void main(String[] args) {
 
         Board gameBoard = new Board();
-        Functionality.printBoard(gameBoard.set);
+        Integer[] set = gameBoard.getSet();
+        Functionality.printBoard(gameBoard.getGameBoard());
 
         // // Integer[][] board = board(shuffler(numberSet())); 
         // Integer[][] board = board(numberSet());

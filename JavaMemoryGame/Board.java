@@ -4,12 +4,21 @@ public class Board {
     private final static int ROWS = 4;
     private final static int COLS = 5;
     private final static int TOTAL_NUMBERS = 20;
+
+    private Integer[] set;
+    private Integer[][] gameBoard;
+    private Object[][] emptyBoard;
     
     public Board() {
-        Integer[] set = Functionality.shuffler(numberSet());
-        Integer[][] gameBoard = board(set);
-        Object[][] emptyBoard = emptyBoard();
+        this.set = Functionality.shuffler(numberSet());
+        this.gameBoard = board(this.set);
+        this.emptyBoard = emptyBoard();
     }
+
+    public Integer[] getSet() {return set;}
+
+    public Integer[][] getGameBoard() {return gameBoard;}
+    public Object[][] getEmptyBoard() {return emptyBoard;}
 
     // Creates a pairs of numbers 1-10. 1,1,2,2, etc.
     public Integer[] numberSet() {
