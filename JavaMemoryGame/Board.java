@@ -43,8 +43,6 @@ public class Board {
         return twoD;
     }
 
-    
-
     public Object[][] emptyBoard() {
         Object[][] empty = new Object[ROWS][COLS];
         for (int i = 0; i < ROWS; i++) {
