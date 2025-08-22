@@ -1,9 +1,9 @@
 import java.util.Arrays;
 
 public class Board {
-    private final static int ROWS = 4;
-    private final static int COLS = 5;
-    private final static int TOTAL_NUMBERS = 20;
+    protected final static int ROWS = 4;
+    protected final static int COLS = 5;
+    protected final static int TOTAL_NUMBERS = 20;
 
     private Integer[] set;
     private Integer[][] gameBoard;
