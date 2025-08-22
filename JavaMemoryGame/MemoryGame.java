@@ -20,19 +20,29 @@ public class MemoryGame {
             int input3 = sc.nextInt();
             int input4 = sc.nextInt();
 
-            System.out.println("P1: " + gameBoard.getGameBoard()[input1][input2]);
-            System.out.println("P2: " + gameBoard.getGameBoard()[input3][input4]);
+            /**
+             * Stores the values of inputted position
+             * 
+             * Position 1: 0 0 = 1
+             * Position 2: 3 2 = 1
+             * etc.
+             */
+            int p1 = gameBoard.getGameBoard()[input1][input2];
+            int p2 = gameBoard.getGameBoard()[input3][input4];
+
+            System.out.println("P1: " + p1);
+            System.out.println("P2: " + p2);
 
             // checks if the two position are a match
-            if (gameBoard.getGameBoard()[input1][input2].equals(gameBoard.getGameBoard()[input3][input4])) {
+            if (p1 == p2) {
                 // if match -> set empty board values for future reference
-                gameBoard.getEmptyBoard()[input1][input2] = gameBoard.getGameBoard()[input1][input2];
-                gameBoard.getEmptyBoard()[input3][input4] = gameBoard.getGameBoard()[input3][input4];
+                gameBoard.getEmptyBoard()[input1][input2] = p1;
+                gameBoard.getEmptyBoard()[input3][input4] = p2;
             } else {
                 // will show your choices but if no match, reset them
                 Functionality.clearScreen();
-                gameBoard.getEmptyBoard()[input1][input2] = gameBoard.getGameBoard()[input1][input2];
-                gameBoard.getEmptyBoard()[input3][input4] = gameBoard.getGameBoard()[input3][input4];
+                gameBoard.getEmptyBoard()[input1][input2] = p1;
+                gameBoard.getEmptyBoard()[input3][input4] = p2;
                 Functionality.printBoard(gameBoard.getEmptyBoard());
                 try {
                     Thread.sleep(3000);
