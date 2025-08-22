@@ -18,7 +18,6 @@ public class Functionality {
             System.out.printf("%-8d", i);
         }
         System.out.println();
-
         
         for (int i = 0; i < board.length; i++) {
             System.out.printf("%-2d", i); 
